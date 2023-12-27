@@ -1,0 +1,23 @@
+package sss;
+import java.util.Scanner;
+ 
+public class StringBufferExample {
+  public static void main(String[] args) {
+     
+     StringBuffer sb = new StringBuffer("Hello World!");
+     System.out.println("Capacity of sb: " + sb.capacity());
+     
+     Scanner sc = new Scanner(System.in);
+     System.out.print("Enter a string: ");
+     String input = sc.nextLine();
+     StringBuffer sb1 = new StringBuffer(input);
+     sb1.reverse(); 
+     String upperCase = sb1.toString().toUpperCase(); 
+     System.out.println("Reversed and Upper Cased String: " + upperCase);
+     
+     System.out.print("Enter another string to append: ");
+     String appendStr = sc.nextLine();
+     sb1.append(appendStr); 
+     System.out.println("Final String: " + sb1.toString());
+  }
+}
