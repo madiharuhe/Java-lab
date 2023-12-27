@@ -1,0 +1,32 @@
+interface compute{
+	public double calculate();
+}
+
+class rectangle implements compute{
+	double a , b;
+	void getvalues() {
+		a = 10.0;
+		b = 12.0;
+	}
+	public double calculate() {
+		return(a*b);
+	}
+}
+
+class triangle extends rectangle implements compute{
+	public double calculate() {
+		return(0.5*a*b);
+	}
+}
+
+public class P7 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		rectangle r = new rectangle();
+		r.getvalues();
+		System.out.println("Area "+r.calculate());
+		triangle t = new triangle();
+		t.getvalues();
+		System.out.println("Area "+t.calculate());
+	}
+}
