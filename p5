@@ -1,0 +1,131 @@
+package sss;
+import java.io.*;
+class Less_Balance_Exception extends Exception {
+   String msg = " ";
+   int bal;
+   Less_Balance_Exception(int amount) {
+       msg = "Less Balance";
+       bal = amount;
+   }
+}
+ 
+class Account {
+   int bal;
+   Account() {
+       bal = 500;
+   }
+   Account (int minbal) {
+       bal = minbal;
+   }
+   void Withdraw(int amount) throws Less_Balance_Exception {
+       int newbal;
+       newbal = bal;
+       newbal -= amount;
+       if(newbal < 500)
+           throw new Less_Balance_Exception(amount);
+       bal = newbal;
+       System.out.println("Amount withdrawn" +amount);
+   }
+   void Deposit(int amount) {
+       bal += amount;
+   }
+   int GetBal(){
+       return bal;
+   }
+}
+public class ExceptionHandling {
+ 
+   public static void main(String[] args)
+       throws IOException {
+       Account a1 = new Account();
+       System.out.println("Balance of account " +a1.GetBal());
+       System.out.println("Enter amount to be deposited");
+       DataInputStream dis = new DataInputStream(System.in);
+       int amt = Integer.parseInt(dis.readLine());
+       a1.Deposit(amt);
+       System.out.println("Amount " +amt +" Deposited");
+ 
+       try {
+           System.out.println("Enter withdrawl Amount");
+           int w = Integer.parseInt(dis.readLine());
+           a1.Withdraw(w);
+       }
+       catch(Less_Balance_Exception lb) {
+           System.out.println("Amount " +lb.bal + " cannot be withdrawn");
+       }
+   }
+}
+
+
+
+
+
+package sss;
+import java.io.*;
+class lessbalanceexception extends Exception
+{
+   String msg = " ";
+   int bal;
+   lessbalanceexception (int amount)
+   {
+       msg = "less balance";
+       bal = amount;
+   }
+}
+class Accounts{
+   int bal;
+   Accounts()
+   {
+       bal = 500;
+   }
+   Accounts(int minbal)
+   {
+       bal = minbal;
+   }
+   void withdraw(int amount) throws lessbalanceexception
+   {
+       int newbal;
+       newbal = bal;
+       newbal -= amount;
+       if ( newbal < 500)
+           throw new lessbalanceexception(amount);
+       bal = newbal;
+       System.out.println("Amount withdrawn : "+amount);
+   }
+   void deposit(int amount)
+   {
+       bal+=amount;
+   }
+   int getbal()
+   {
+       return bal;
+   }
+}
+public class ExceptionHandling_2 {
+   public static void main(String args[])
+    throws IOException {
+       Accounts a1 = new Accounts();
+       Accounts a2 = new Accounts();
+       System.out.println("Two Accounts created with minimum balance\n");
+       System.out.println("Balance of Account 1 : "+a1.getbal()+"\n");
+       System.out.println("Balance of Account 2 : "+a2.getbal()+"\n");
+       System.out.println("Enter amount to be deposited in Account 1 : ");
+       DataInputStream dis = new DataInputStream(System.in);
+       int amt1 = Integer.parseInt(dis.readLine());
+       a1.deposit(amt1);
+       System.out.println("\namount "+amt1+" deposited in Account 1\n");
+       System.out.println("Enter amount to be deposited in Account 2 : ");
+       int amt2 = Integer.parseInt(dis.readLine());
+       a2.deposit(amt2);
+       System.out.println("\namount "+amt2+" deposited in Account 2\n");
+       try{
+           System.out.println("Enter withdrawl amount from Account 1 : ");
+           int w = Integer.parseInt(dis.readLine());
+           a1.withdraw(w);
+       }
+       catch(lessbalanceexception lb)
+       {
+           System.out.println("\nAmount " + lb.bal + " cannot be withdrawn");
+       }
+   }
+}
