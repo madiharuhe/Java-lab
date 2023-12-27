@@ -1,0 +1,46 @@
+package sss;
+import java.util.*;
+
+public class student {
+public String vtuno;
+public String fullname;
+public String sem;
+public String branch; 
+public String address;
+
+public student () {
+Scanner s = new Scanner (System.in) ;
+
+System.out.println ("VTU NO : ");
+
+vtuno = s.nextLine ();
+
+System.out.println ("Full name : ");
+fullname = s.nextLine() ;
+
+System.out.println("Address : ");
+
+address = s.nextLine () ;
+
+System.out.println ("Branch : ");
+
+branch = s.nextLine() ;
+
+System.out.println("Semester : ");
+
+sem =s.nextLine () ;
+}
+
+public void show() {
+System.out.println("Entered data");
+System.out.println("VTU NO : "+vtuno);
+System.out.println("Full name : "+fullname);
+System.out.println("Semester : "+sem);
+System.out.println("Branch : " +branch);
+System.out.println("Address : "+address);
+}
+public static void main(String[] args) {
+student std = new student ();
+std. show() ;
+}
+}
